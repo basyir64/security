@@ -12,7 +12,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
-@Table(name = "app_role")
+@Table(name = "roles")
 public class Role {
 
     @Id

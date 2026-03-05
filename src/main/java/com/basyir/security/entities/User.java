@@ -18,7 +18,8 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Entity
-@Table(name = "app_user")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -33,11 +34,6 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private String password;
-
-    private LocalDate dateOfBirth;
-
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Column(nullable = false)

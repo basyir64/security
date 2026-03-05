@@ -45,8 +45,9 @@ public class JWT_Auth_Filter extends OncePerRequestFilter {
             if (requestTokenHeader == null || !requestTokenHeader.startsWith("Bearer")) {
 
                 // Whitelist
-                boolean isLoginRequest = (contextPath + "/auth/login").equals(request.getRequestURI());
+                // Sign up controller is project-specific
                 boolean isSignUpRequest = (contextPath + "/auth/signup").equals(request.getRequestURI());
+                boolean isLoginRequest = (contextPath + "/auth/login").equals(request.getRequestURI());
                 boolean isRefreshRequest = (contextPath + "/auth/refresh").equals(request.getRequestURI());
 
                 if (isLoginRequest || isSignUpRequest || isRefreshRequest) {

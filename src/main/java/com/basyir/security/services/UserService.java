@@ -31,9 +31,9 @@ public class UserService implements UserDetailsService {
     public void updateProfile(ProfileUpdateRequestDto profileUpdateRequestDto) {
         User user = getCurrentUser();
 
-        if (profileUpdateRequestDto.getDateOfBirth() != null)
-            user.setDateOfBirth(profileUpdateRequestDto.getDateOfBirth());
-        if (profileUpdateRequestDto.getGender() != null) user.setGender(profileUpdateRequestDto.getGender());
+//        if (profileUpdateRequestDto.getDateOfBirth() != null)
+//            user.setDateOfBirth(profileUpdateRequestDto.getDateOfBirth());
+//        if (profileUpdateRequestDto.getGender() != null) user.setGender(profileUpdateRequestDto.getGender());
         if (profileUpdateRequestDto.getName() != null) user.setName(profileUpdateRequestDto.getName());
 
         userRepository.save(user);

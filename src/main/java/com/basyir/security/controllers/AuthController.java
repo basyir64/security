@@ -2,8 +2,6 @@ package com.basyir.security.controllers;
 
 import com.basyir.security.dtos.LoginDto;
 import com.basyir.security.dtos.LoginResponseDto;
-import com.basyir.security.dtos.SignUpRequestDto;
-import com.basyir.security.dtos.UserDto;
 import com.basyir.security.core.AuthService;
 import com.basyir.security.exceptions.RefreshTokenException;
 import jakarta.servlet.http.Cookie;
@@ -11,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,10 +23,7 @@ import java.util.Arrays;
 public class AuthController {
     private final AuthService authService;
 
-    @PostMapping("/signup")
-    public ResponseEntity<UserDto> signup(@RequestBody @Valid SignUpRequestDto signUpRequestDto) {
-        return new ResponseEntity<>(authService.signUp(signUpRequestDto), HttpStatus.CREATED);
-    }
+    // Sign up endpoint is project-specific in their signup controller
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginDto loginDto,

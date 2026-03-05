@@ -13,7 +13,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
-@Table(name = "app_permission")
+@Table(name = "permissions")
 @NoArgsConstructor
 public class Permission {
 
