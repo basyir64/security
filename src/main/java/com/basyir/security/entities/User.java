@@ -43,7 +43,7 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
 
-        // Add role-based authorities (prefix with ROLE_ for hasRole() checks)
+//        Add role-based authorities (prefix with ROLE_ for hasRole() checks)
         roles.forEach(role ->
                 authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()))
         );
