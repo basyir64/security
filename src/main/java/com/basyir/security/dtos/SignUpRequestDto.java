@@ -1,7 +1,6 @@
 package com.basyir.security.dtos;
 
 import com.basyir.security.annotations.PasswordChecker;
-import com.basyir.security.entities.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -9,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -28,5 +27,6 @@ public class SignUpRequestDto {
     private String password;
 
     @NotEmpty
-    private Set<String> roles;
+    private
+    List<String> roles;
 }

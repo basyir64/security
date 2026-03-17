@@ -1,14 +1,14 @@
 package com.basyir.security.dtos;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Data
 public class RoleDto {
     private String name;
     private String description;
-    private Set<PermissionDto> permissions = new HashSet<>();
+    private List<PermissionDto> permissions = new ArrayList<>();
 }

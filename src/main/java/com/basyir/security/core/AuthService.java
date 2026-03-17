@@ -16,7 +16,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -62,8 +64,8 @@ public class AuthService {
         return jwtService.generateAccessToken(user);
     }
 
-    public Set<Role> findRoles(Set<String> rolesStr) {
-        Set<Role> roles = new HashSet<>();
+    public List<Role> findRoles(List<String> rolesStr) {
+        List<Role> roles = new ArrayList<>();
         for (String roleStr : rolesStr) {
             // need to change to by id
             Role role = roleRepository.findByName(roleStr).orElseThrow(() -> new ResourceNotFoundException("Role does not exist: " + roleStr));

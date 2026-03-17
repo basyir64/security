@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +25,7 @@ public class RoleService {
     private final ModelMapper modelMapper;
 
     public RoleDto save(RoleDto roleDto) {
-        Set<Permission> permissions = new HashSet<>();
+        List<Permission> permissions = new ArrayList<>();
         Role role = modelMapper.map(roleDto, Role.class);
         for (PermissionDto permissionDto : roleDto.getPermissions()) {
             Long permissionDtoId = permissionDto.getId();
@@ -52,7 +53,7 @@ public class RoleService {
         roleToUpdate.setName(roleDto.getName());
         roleToUpdate.setDescription(roleDto.getDescription());
 
-        Set<Permission> newPermissions = new HashSet<>();
+        List<Permission> newPermissions = new ArrayList<>();
         for (PermissionDto permissionDto : roleDto.getPermissions()) {
             Long permissionDtoId = permissionDto.getId();
             Permission newPermission = permissionRepository.findById(permissionDtoId).orElseThrow(() -> new ResourceNotFoundException("Permission not found by id: " + permissionDtoId));

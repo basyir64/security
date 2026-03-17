@@ -1,19 +1,25 @@
 package com.basyir.security.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "roles")
+@NoArgsConstructor
 public class Role {
+
+    public Role(String name) {
+        this.name = name;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +37,6 @@ public class Role {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     @JsonManagedReference  // This side will be serialized normally to break circular reference
-    private Set<Permission> permissions = new HashSet<>();
+    private List<Permission> permissions = new ArrayList<>();
 
 }
